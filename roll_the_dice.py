@@ -20,9 +20,28 @@ def print_result(player_1, player_2):
     print("{}{}{}{}{}" .format(player_1[0],'-', player_1[1], '-', player_1[2]))
     print("{}{}{}" .format(player_2[0],'-', player_2[1]))
 
+def print_outcome_text(a, d):
+    print('Attacker: Lost ', a, 'units\nDefender: Lost ', d, 'units')
+    
+def print_loss(player_1, player_2):
+    print('\nOutcome:')
+    if (player_1[0] > player_2[0]) and (player_1[1] > player_2[1]):
+        a = 0
+        d = 2
+        print_outcome_text(a, d)
+    elif (player_1[0] <= player_2[0]) and (player_1[1] <= player_2[1]):
+        a = 2
+        d = 0
+        print_outcome_text(a, d)
+    else: 
+        a = 1
+        d = 1
+        print_outcome_text(a, d)
+
+
 attacker = []
 defender = []
 
 play(attacker, defender)
-
 print_result(attacker, defender)
+print_loss(attacker, defender)
